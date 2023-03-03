@@ -1,0 +1,38 @@
+﻿<Window x:Class="аудеоплеер.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:аудеоплеер"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="287*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="V" Grid.Row="0" Grid.ColumnSpan="7" Content="Открыть папку с музыкой" VerticalContentAlignment="Center" Click="V_Click_1"/>
+        <ListBox x:Name="ListBox" Grid.ColumnSpan="7" Grid.Row="1" VerticalAlignment="Center"  Height="285" SelectionChanged="ListBox_SelectionChanged"/>
+        <Slider Margin="5" Grid.Column="6" Grid.Row="3"  Minimum="0" Maximum="1" 
+                            Value="{Binding ElementName=my_media,Path=Volume,Mode=TwoWay}"></Slider>
+        <Button Grid.Column="0" Grid.Row="3" Content="&lt;&lt;" FontFamily="Times New Roman" FontSize="24" Background="White"></Button>
+        <MediaElement x:Name="media" LoadedBehavior="Manual" MediaOpened="media_MediaOpened" />
+        <Slider x:Name="audioSlider" Grid.Row="2" Grid.ColumnSpan="7" ValueChanged="audioSlider_ValueChanged"/>
+        <Button x:Name="pusk" Grid.Column="1" Grid.Row="3" Content="▶️" FontFamily="Times New Roman" FontSize="24" Background="White" Click="pusk_Click"></Button>
+        <Button Grid.Column="3" Grid.Row="3" Content="&gt;&gt;" FontFamily="Times New Roman" FontSize="24" Background="White"></Button>
+        <Button x:Name="paus" Grid.Column="2" Grid.Row="3" Content="| |" FontFamily="Times New Roman" FontSize="27" Background="White" Click="paus_Click"></Button>
+        <Button x:Name="povtor" Grid.Column="4" Grid.Row="3" Content="🔁" FontFamily="Times New Roman" FontSize="35" Background="White" Click="povtor_Click"></Button>
+        <Button Grid.Column="5" Grid.Row="3" Content="🔀" FontFamily="Times New Roman" FontSize="35" Background="White"></Button>
+    </Grid>
+</Window>
