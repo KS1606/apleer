@@ -26,13 +26,13 @@
         <ListBox x:Name="ListBox" Grid.ColumnSpan="7" Grid.Row="1" VerticalAlignment="Center"  Height="285" SelectionChanged="ListBox_SelectionChanged"/>
         <Slider Margin="5" Grid.Column="6" Grid.Row="3"  Minimum="0" Maximum="1" 
                             Value="{Binding ElementName=my_media,Path=Volume,Mode=TwoWay}"></Slider>
-        <Button Grid.Column="0" Grid.Row="3" Content="&lt;&lt;" FontFamily="Times New Roman" FontSize="24" Background="White"></Button>
+        <Button x:Name="nazat" Grid.Column="0" Grid.Row="3" Content="&lt;&lt;" FontFamily="Times New Roman" FontSize="24" Background="White" Click="nazat_Click"></Button>
         <MediaElement x:Name="media" LoadedBehavior="Manual" MediaOpened="media_MediaOpened" />
         <Slider x:Name="audioSlider" Grid.Row="2" Grid.ColumnSpan="7" ValueChanged="audioSlider_ValueChanged"/>
         <Button x:Name="pusk" Grid.Column="1" Grid.Row="3" Content="▶️" FontFamily="Times New Roman" FontSize="24" Background="White" Click="pusk_Click"></Button>
-        <Button Grid.Column="3" Grid.Row="3" Content="&gt;&gt;" FontFamily="Times New Roman" FontSize="24" Background="White"></Button>
+        <Button x:Name="vper" Grid.Column="3" Grid.Row="3" Content="&gt;&gt;" FontFamily="Times New Roman" FontSize="24" Background="White" Click="vper_Click"></Button>
         <Button x:Name="paus" Grid.Column="2" Grid.Row="3" Content="| |" FontFamily="Times New Roman" FontSize="27" Background="White" Click="paus_Click"></Button>
         <Button x:Name="povtor" Grid.Column="4" Grid.Row="3" Content="🔁" FontFamily="Times New Roman" FontSize="35" Background="White" Click="povtor_Click"></Button>
-        <Button Grid.Column="5" Grid.Row="3" Content="🔀" FontFamily="Times New Roman" FontSize="35" Background="White"></Button>
+        <Button x:Name="peremeshka" Grid.Column="5" Grid.Row="3" Content="🔀" FontFamily="Times New Roman" FontSize="35" Background="White" Click="peremeshka_Click"></Button>
     </Grid>
 </Window>

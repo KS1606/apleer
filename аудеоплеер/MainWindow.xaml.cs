@@ -25,8 +25,12 @@ namespace аудеоплеер
 {
     public partial class MainWindow : Window
     {
-        public static List<string> list = new List<string>();
-        string put;
+        private static List<string> list = new List<string>();
+        private List<string> A = new List<string>();
+        private int robot = 0;
+        private int num = 0;
+        private string put = "";
+        private int pesna = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -53,7 +57,7 @@ namespace аудеоплеер
                     }
                 }
             }
-            media.Source = new Uri(list[0]);
+            media.Source = new Uri(list[pesna]);
             media.Play();
             media.Volume = 0.7;
         }
@@ -82,7 +86,8 @@ namespace аудеоплеер
         {
             string selected = ListBox.SelectedItem.ToString();
             selected = ListBox.Items[ListBox.SelectedIndex].ToString();
-
+            int index = ListBox.SelectedIndex;
+            pesna = index;
             string a = put + selected;
             media.Source = new Uri(a);
             media.Play();
@@ -93,6 +98,80 @@ namespace аудеоплеер
         {
             media.Stop();
             media.Play();
+        }
+
+        private void nazat_Click(object sender, RoutedEventArgs e)
+        {
+            pesna--;
+            if (pesna < 0)
+            {
+                media.Stop();
+            }
+            else
+            {
+                if (robot == 0)
+                {
+                    media.Source = new Uri(list[pesna]); 
+                    media.Play();
+                    media.Volume = 0.7;
+                }   
+                if (robot == 1)
+                {
+                    media.Source = new Uri(list[pesna]);
+                    media.Play();
+                    media.Volume = 0.7;
+                }
+            }
+            
+        }
+
+        private void vper_Click(object sender, RoutedEventArgs e)
+        {
+            pesna++;
+            if (robot == 0)
+            {
+                media.Source = new Uri(list[pesna]);
+                media.Play();
+                media.Volume = 0.7;
+            }
+            if (robot == 1)
+            {
+                media.Source = new Uri(list[pesna]);
+                media.Play();
+                media.Volume = 0.7;
+            }
+        }
+
+        private void peremesh()
+        {
+            if (robot == 0)
+            {
+                Random RND = new Random();
+                A = list;
+                A = A.OrderBy(v => RND.Next()).ToList();
+                media.Source = new Uri(A[pesna]);
+                media.Play();
+                media.Volume = 0.7;
+                robot = 1;
+            }
+            else
+            {
+                robot = 0;
+                vozproiz();
+            }
+
+
+        }
+        private void vozproiz()
+        {
+            media.Source = new Uri(list[pesna]);
+            media.Play();
+            media.Volume = 0.7;
+        }
+
+        private void peremeshka_Click(object sender, RoutedEventArgs e)
+        {
+            peremesh();
         }
     }
 }
